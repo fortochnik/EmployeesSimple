@@ -27,17 +27,24 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+/*    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String welcomePage(ModelMap model) {
+
+        model.addAttribute("message", "Spring 3 MVC Hello World");
+        return "index";
+//        return "redirect:/index";
+    }*/
+
     @RequestMapping(value = {"/", "search"}, method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
 
-//        model.addAttribute("message", "Spring 3 MVC Hello World");
-//        return "index";
         return "redirect:/list";
     }
 
 
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/list**", method = RequestMethod.GET)
     public ModelAndView getList() {
 
         List employeeList = employeeService.listEmployee();
@@ -61,7 +68,7 @@ public class EmployeeController {
     }
 
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/add**", method = RequestMethod.GET)
     public String addEmployeeForm(Model model)
     {
         Employee employee = new Employee();

@@ -9,6 +9,8 @@
     </title>
 </head>
 <body>
+<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
+<br>
 <form:form method="POST" commandName="user">
     <form:hidden path="id"/>
     <table>

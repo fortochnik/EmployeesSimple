@@ -9,6 +9,7 @@
     <title>List of Employees</title>
 </head>
 <body>
+<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 <center>
 
     <div style="color: teal; font-size: 30px">List of Employees</div>
@@ -97,5 +98,6 @@
 
 
 </center>
+
 </body>
 </html>  
