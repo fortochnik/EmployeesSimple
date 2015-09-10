@@ -1,7 +1,5 @@
 package web.dao;
 
-
-
 import web.model.Employee;
 
 import java.util.List;
@@ -18,8 +16,6 @@ public interface EmployeeDao {
     public void removeEmployee(Integer id);
 
     public Employee getEmployee(Integer id);
-
-    public void modifyEmployee(Employee employee);
 
     public List<Employee> searchEmployee(String searchTag, String searchText);
 }

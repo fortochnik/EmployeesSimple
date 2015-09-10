@@ -15,9 +15,6 @@ import web.service.EmployeeService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-/**
- * Created by mipan on 06.09.2015.
- */
 @Controller
 public class MainController {
 

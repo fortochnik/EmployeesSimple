@@ -32,11 +32,6 @@ public class Employee implements Serializable {
         this.description = description;
     }
 
-   /* @PrePersist
-    public void prePersist() {
-        if(age == null) //We set default value in case if the value is not set yet.
-            age = "Default value";
-    }*/
 
     @Id
     @Column(name = "id")

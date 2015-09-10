@@ -10,11 +10,10 @@
 
     <http auto-config="true">
         <access-denied-handler error-page="/403" />
-        <intercept-url pattern="/add**" access="ROLE_ADMIN" />
-        <intercept-url pattern="/user/delete/**" access="ROLE_ADMIN" />
-        <intercept-url pattern="/user/modify/**" access="ROLE_ADMIN" />
-        <intercept-url pattern="/list**" access="ROLE_USER,ROLE_ADMIN" />
-        <intercept-url pattern="/list**" access="ROLE_USER,ROLE_ADMIN" />
+        <intercept-url pattern="/add*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/user/delete/*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/user/modify/*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/list*" access="ROLE_USER, ROLE_ADMIN" />
         <!--<form-login login-page="/login.jsp" default-target-url="/index" authentication-failure-url="/login.jsp?error=true"/>-->
         <!--<logout logout-url="/logout" logout-success-url="/index"/>-->
     </http>

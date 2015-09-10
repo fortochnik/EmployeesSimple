@@ -17,8 +17,6 @@ public interface EmployeeService {
 
     public Employee getEmployee(Integer id);
 
-    public void modifyEmployee(Employee employee);
-
     public List<Employee> searchEmployee(String searchTag, String searchText);
 }
 

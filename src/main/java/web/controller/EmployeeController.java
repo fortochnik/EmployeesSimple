@@ -1,6 +1,7 @@
 package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,24 +28,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-/*    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomePage(ModelMap model) {
-
-        model.addAttribute("message", "Spring 3 MVC Hello World");
-        return "index";
-//        return "redirect:/index";
-    }*/
-
-    @RequestMapping(value = {"/", "search"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "search*"}, method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
 
         return "redirect:/list";
     }
 
-
-
-
-    @RequestMapping(value = "/list**", method = RequestMethod.GET)
+    @RequestMapping(value = "/list*", method = RequestMethod.GET)
     public ModelAndView getList() {
 
         List employeeList = employeeService.listEmployee();
@@ -56,7 +46,7 @@ public class EmployeeController {
 //        return new ModelAndView("list", "employeeList", employeeList);
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/search*", method = RequestMethod.POST)
     public ModelAndView searchEmployee(@RequestParam(value = "search_tag") String searchTag,
                                        @RequestParam(value = "search_text") String searchText ){
         ModelAndView mav = new ModelAndView("list");
@@ -68,7 +58,7 @@ public class EmployeeController {
     }
 
 
-    @RequestMapping(value = "/add**", method = RequestMethod.GET)
+    @RequestMapping(value = "/add*", method = RequestMethod.GET)
     public String addEmployeeForm(Model model)
     {
         Employee employee = new Employee();

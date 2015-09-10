@@ -2,68 +2,55 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>List of Employees</title>
+    <title><spring:message code="message.title"/></title>
 </head>
 <body>
-<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
+<table border="0" width="100%">
+    <tr>
+        <td align="left">Language : <a href="?lang=en">English </a>|<a href="?lang=ru"> Russian</a>
+
+        </td>
+        <td align="right">Current Locale: ${pageContext.response.locale} <a href="<c:url value="/j_spring_security_logout"/>"> <spring:message code="message.logout"/></a></td>
+    </tr>
+</table>
 <center>
 
-    <div style="color: teal; font-size: 30px">List of Employees</div>
-
-    <%--<form:form method="POST" modelAttribute="employee" action="list">
-        <table>
-            <tbody>
-            <tr>
-                <td>
-                    <ul>
-                        <form:select path="firstName" >
-                            <form:option value="NONE"> --SELECT--</form:option>
-                            <form:options items="${searchParameters}"/>
-                        </form:select>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Submit">
-                </td>
-            </tr>
-            </tbody></table>
-    </form:form>--%>
+    <div style="color: teal; font-size: 30px"><spring:message code="message.title"/></div>
 
     <form method="POST" action="/search">
         <p><select name="search_tag">
-            <option value="firstName">Имя</option>
-            <option value="lastName">Фамилия</option>
-            <option value="secondName">Второе имя</option>
-            <option value="age">Возраст</option>
-            <option value="experience">Опыт</option>
-            <option value="description">Описание</option>
+            <option value="firstName"><spring:message code="message.first_name"/></option>
+            <option value="lastName"><spring:message code="message.last_name"/></option>
+            <option value="secondName"><spring:message code="message.second_name"/></option>
+            <option value="age"><spring:message code="message.age"/></option>
+            <option value="experience"><spring:message code="message.experience"/></option>
+            <option value="description"><spring:message code="message.description"/></option>
         </select>
         <input type="text" name="search_text" >
-        <input type="submit" value="Search">
+        <input type="submit" value="<spring:message code="message.search"/>">
         </p>
     </form>
 
 
 
     <c:if test="${!empty employeeList}">
-        <table border="1" bgcolor="black" width="600px">
+        <table border="1" bgcolor="black" width="640px">
             <tr
                     style="background-color: teal; color: white; text-align: center;"
                     height="40px">
 
-                <td>first Name</td>
-                <td>last Name</td>
-                <td>second Name</td>
-                <td>age</td>
-                <td>experience</td>
-                <td>description</td>
-                <td>actions</td>
+                <td><spring:message code="message.first_name"/></td>
+                <td><spring:message code="message.last_name"/></td>
+                <td><spring:message code="message.second_name"/></td>
+                <td><spring:message code="message.age"/></td>
+                <td><spring:message code="message.experience"/></td>
+                <td><spring:message code="message.description"/></td>
+                <td><spring:message code="message.actions"/></td>
             </tr>
             <c:forEach items="${employeeList}" var="user">
                 <tr
@@ -81,22 +68,17 @@
                     <td><c:out value="${user.experience}" />
                     </td>
                     <td><c:out value="${user.description}" />
-                    <td><a href="user/modify/${user.id}">modify</a> | <a href="user/delete/${user.id}">delete</a></td>
+                    <td><a href="user/modify/${user.id}"><spring:message code="message.modify"/></a> | <a href="user/delete/${user.id}"><spring:message code="message.delete"/></a></td>
                 </tr>
             </c:forEach>
         </table>
 
-
-
     </c:if>
     <c:if test="${empty employeeList}">
-        The result is empty.
+        <spring:message code="message.empty"/>
     </c:if>
-    <c:if test="${not empty result}"> <br><a href="/add">create new Employee</a></c:if>
-    <c:if test="${empty result}"><br><a href="/list">drop search result</a></c:if>
-
-
-
+    <c:if test="${not empty result}"> <br><a href="/add"><spring:message code="message.create"/></a></c:if>
+    <c:if test="${empty result}"><br><a href="/list"><spring:message code="message.drop"/></a></c:if>
 </center>
 
 </body>

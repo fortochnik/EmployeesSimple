@@ -35,20 +35,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public void removeEmployee(Integer id) {
         sessionFactory.getCurrentSession().delete(getEmployee(id));
-
     }
 
     @Override
     public Employee getEmployee(Integer id) {
-
         return (Employee) sessionFactory.getCurrentSession().get(Employee.class, id);
-
     }
 
-    @Override
-    public void modifyEmployee(Employee employee) {
-//        sessionFactory.getCurrentSession().up
-    }
+
 
     @Override
     public List<Employee> searchEmployee(String searchTag, String searchText) {

@@ -42,11 +42,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void modifyEmployee(Employee employee) {
-
-    }
-
-    @Override
     @Transactional
     public List<Employee> searchEmployee(String searchTag, String searchText) {
         return employeeDao.searchEmployee(searchTag, searchText);
